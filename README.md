@@ -72,4 +72,3 @@ The project utilizes **Angular Material** for design and custom design elements.
 * **404 Page:** For non-existent pages. If an incorrect URL is entered, you will be redirected to a 404 page. (Example URL: [`http://localhost:4200/vacancies/page-not-found`](http://localhost:4200/vacancies/page-not-found) )  
 * **Access Denied Page:** For unauthorized access attempts. If a guest user tries to access the "Applications" page via URL, they will be shown this page. (Example URL: [`http://localhost:4200/vacancies/results`](http://localhost:4200/vacancies/results) )  
 * **SonarLint:** Used for code quality checks and tested using the SonarLint VSCode extension.  
-* 
