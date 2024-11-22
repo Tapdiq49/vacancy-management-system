@@ -1,0 +1,38 @@
+$bc-palette: (
+    50 : #e4edf2,
+    100 : #bcd1dd,
+    200 : #8fb2c7,
+    300 : #6293b1,
+    400 : #417ca0,
+    500 : #1f658f,
+    600 : #1b5d87,
+    700 : #17537c,
+    800 : #124972,
+    900 : #0a3760,
+    A100 : #93c7ff,
+    A200 : #60acff,
+    A400 : #2d92ff,
+    A700 : #1485ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #ffffff,
+    )
+);
+
+$bc-primary: mat.m2-define-palette($bc-palette, 500, 50, 900);
+$bc-accent: mat.m2-define-palette(mat.$m2-green-palette, 500, 100, 900);
+$bc-warn: mat.m2-define-palette(mat.$m2-deep-orange-palette, A400);
+
+$bc-theme: _mat-create-custom-light-color-config($bc-primary, $bc-accent, $bc-warn);

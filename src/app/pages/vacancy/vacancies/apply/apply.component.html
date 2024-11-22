@@ -1,0 +1,23 @@
+<h2 class="p-4 border-bottom">
+  <div class="flex justify-between align-center">
+    <b>Müraciət et</b>
+    <button type="button" class="close-button" (click)="cancel()">
+      <img src="../../../../../assets/icons/x-close.svg" class="pointer" alt="close">
+    </button>
+  </div>
+</h2>
+
+<p class="p-4">
+  Əgər 'Davam et' düyməsini sıxarsanız, ,<strong>geri qayıtmaq mümkün olmayacaq</strong>  və geri sayım başlayacaq. Bu mərhələ 15 sualdan ibarətdir və hər bir sualı həll etmək üçün 1 dəqiqə vaxtınız olacaq. Suallar ingilis dilinde olacaqdır.
+</p>
+
+<div class="p-2 flex-row center-center">
+  <form [formGroup]="form" autocomplete="off" class="w-100">
+    <div class="flex-row w-100 flex-wrap">
+      <app-text-field class="flex-2 px-2" label="Ad və soyad" [onlyLetters]="true"  formControlName="fullname"></app-text-field>
+      <app-text-field class="px-2 flex-2" label="Elektron poçt" formControlName="email"></app-text-field>
+      <app-text-field class="px-2 flex-2" label="Telefon nömrəsi" formControlName="phone"  [maskValue]="'+000-00-000-00-00'" ></app-text-field>
+    </div>
+    <app-dialog-buttons (onCancelBtnClick)="cancel()" (onAddBtnClick)="save()" [btnLoading]="btnLoading"></app-dialog-buttons>
+  </form>
+</div>

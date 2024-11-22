@@ -1,0 +1,76 @@
+.login-tab-group.mat-mdc-tab-group {
+    width: 290px;
+
+    .mat-mdc-tab-header {
+        border-bottom: none !important;
+        --mat-tab-header-label-text-weight: 400;
+    }
+
+    .mat-mdc-tab-labels {
+        justify-content: space-between;
+        padding: 1px;
+    }
+
+    .mat-mdc-tab-body-content {
+        padding: 1px;
+        box-sizing: border-box;
+    }
+
+    .mat-mdc-tab {
+        flex-grow: 0 !important;
+        min-width: 137px;
+        width: 137px;
+        height: 44px;
+        border: 1px solid #C9E1E3;
+        border-radius: 12px;
+
+        &.mdc-tab--active {
+            border-color: #519EA6;
+            background-color: #E5F0F2;
+        }
+    }
+
+    .mdc-tab-indicator {
+        display: none;
+        height: 0;
+    }
+
+    &.public {
+        .mat-mdc-tab {
+            min-width: 139px;
+        }
+    }
+}
+
+.mat-mdc-form-field-flex {
+    height: 44px;
+}
+
+.login-title {
+    font-size: 34px;
+}
+
+.mat-icon {
+    margin-top: 10px;
+}
+
+.frame-logo{
+  height: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  .subtitle{
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+  }
+}
+
+.text-logo {
+  font-size: 20px;
+  text-align: left;
+  font-weight: 600;
+  color: #ffffff;
+  width: 650px;
+}
+

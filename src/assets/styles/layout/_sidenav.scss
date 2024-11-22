@@ -1,0 +1,152 @@
+@import '../abstracts/variables';
+
+#app {
+    .mat-sidenav.main-sidenav {
+        position: fixed;
+        height: 100%;
+        padding: 0;
+        box-sizing: border-box;
+        border-radius: 0px !important;
+        width: calc($main-sidenav-width + 20px);
+        transition: all 400ms;
+        .mat-drawer-inner-container{
+            overflow-x: hidden;
+        }
+
+        app-scrollbar {
+            margin: 0 8px;
+            border-radius: 12px;
+        }
+
+        img {
+            &.logo {
+                transition: 400ms;
+                width: 20%;
+                &.small{
+                    width: 15%;
+                }
+            }
+
+        }
+    }
+
+    #vertical-menu {
+        position: relative;
+        background-blend-mode: overlay;
+        background-size: 180px;
+
+        .menu-item:last-child{
+          margin-bottom: 1rem;
+        }
+
+        .bar_horizontal {
+            display: none;
+        }
+
+        .sidenav-footer {
+            position: fixed;
+            bottom: 0;
+            width: $main-sidenav-width;
+            height: $main-sidenav-footer-height;
+            padding: 4px $main-padding;
+            box-sizing: border-box;
+            transition: all 400ms;
+            display: flex;
+            align-items: center;
+
+            svg.logo-icon {
+                height: 100%;
+                width: 27px;
+            }
+
+            svg:not(.logo-icon) {
+                width: 100px;
+                height: 100%;
+            }
+        }
+
+        .sidenav-header {
+            box-sizing: border-box;
+            position: fixed;
+            z-index: 9;
+            height: $main-sidenav-header-height;
+            display: flex;
+            align-items: center;
+            place-content: center;
+            width: $main-sidenav-width;
+            top: $main-toolbar-height;
+            transition: all 400ms;
+
+            input {
+                margin: 0 8px;
+                width: 100%;
+                height: auto;
+                padding: 8px 36px 8px 8px;
+                outline: none;
+                border: none;
+                border-radius: 12px !important;
+                transition: all 400ms;
+            }
+
+            button.search-btn {
+                width: 0;
+                visibility: hidden;
+                opacity: 0;
+                transition: all 400ms;
+                padding: 0;
+            }
+
+            button.clear {
+                position: absolute;
+                z-index: 2;
+                color: rgba(0, 0, 0, 0.4);
+                right: 0;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                place-content: center;
+            }
+        }
+    }
+
+    &.sidenav-small {
+        .mat-sidenav.main-sidenav {
+            width: $main-sidenav-small-width;
+
+            app-scrollbar {
+                margin: 0 6px;
+            }
+
+            &.title {
+                padding-left: 30px;
+            }
+        }
+
+        #vertical-menu {
+            .mdc-button {
+                width: 44px;
+                min-width: 44px;
+            }
+
+            .sidenav-header {
+                width: $main-sidenav-small-width;
+
+                input {
+                    width: 0;
+                    padding: 0;
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    &.content-fullscreen {
+        .mat-sidenav.main-sidenav {
+            z-index: -1;
+        }
+    }
+
+    .sidenav-width {
+        width: 309px;
+    }
+}

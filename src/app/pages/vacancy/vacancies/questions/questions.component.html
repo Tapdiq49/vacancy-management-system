@@ -1,0 +1,56 @@
+<h2 class="p-4 border-bottom">
+  <div class="flex justify-between align-center">
+    <b>Suallar</b>
+    @if(currentStepIndex !== lastStepIndex && timer > 0){
+      <span>
+        <span [class.red-timer]="timer <= 20">{{ timer }}</span>
+        saniyə qaldı
+      </span>
+    }
+  </div>
+</h2>
+
+<div class="p-2 flex-row">
+  <mat-stepper [linear]="isLinear" #stepper (selectionChange)="onStepChange($event)">
+    @for (question of data.items.interviewQuestions; track question.title; let i = $index) {
+      <mat-step [stepControl]="formGroups[i]" [editable]="false">
+        <form [formGroup]="formGroups[i]">
+          <div>{{ question.title }}</div>
+          <mat-radio-group formControlName="selectedOption" aria-label="Select an option" class="radio-group">
+            <mat-radio-button *ngFor="let option of question.options" [value]="option.id">
+              {{ option.text }}
+            </mat-radio-button>
+          </mat-radio-group>
+          <div class="mt-3">
+            <button mat-button matStepperNext [disabled]="formGroups[i].invalid" mat-raised-button color="primary">Davam et</button>
+          </div>
+        </form>
+      </mat-step>
+    }
+
+    <mat-step [editable]="false">
+      <ng-template matStepLabel>CV</ng-template>
+      <p>Siz bütün sualları cavablandırdınız. Müraciət etmək üçün CV-nizi yükləyin.</p>
+      <div class="file-upload-container">
+        <label for="file-upload" class="file-upload-label">
+          Yüklənən fayl <strong>PDF</strong> və <strong>DOC</strong> formatları olmalıdır və həcmi maksimum <strong>5MB</strong> olmalıdır
+        </label>
+        <div class="mt-2">
+          <button (click)="fileInput.click()" mat-raised-button color="primary">Faylı seçin</button>
+          <input
+            #fileInput
+            type="file"
+            id="file-upload"
+            (change)="onFileSelected($event)"
+            [accept]="'.pdf, .doc, .docx'"
+            style="display: none;"
+          />
+        </div>
+        @if(fileName){
+          <p>Yüklənən fayl: {{ fileName }}</p>
+        }
+      </div>
+      <button mat-button (click)="submitAnswers()" [disabled]="!fileUploaded" mat-raised-button color="primary" class="mt-3">Müraciət et</button>
+    </mat-step>
+  </mat-stepper>
+</div>

@@ -1,0 +1,27 @@
+<h2 class="p-4 border-bottom">
+  <div class="flex justify-between align-center">
+    <b>Görünən Sütunlar</b>
+    <button (click)="cancel()" type="button" class="close-button">
+      <img src="../../../../../assets/icons/x-close.svg"  class="pointer" alt="close"/>
+    </button>
+  </div>
+</h2>
+
+<div class="p-2 flex-row center-center">
+  <form autocomplete="off" class="w-100">
+    <div class="flex-row w-100 flex-wrap">
+      <div class="basic-checkbox-field flex-1">
+        <mat-checkbox class="px-3" [checked]="allSelect" color="primary" (change)="allCheck($event)" >
+          <span class="px-3 py-3 color-black">Bütün seçimlər</span>
+        </mat-checkbox>
+      </div>
+      @for (col of data.items.columns; track col.name) {
+        <div class="basic-checkbox-field flex-3">
+          <mat-checkbox class="px-3" [checked]="col.visible" color="primary" (change)="itemChecked($event, col)" >
+            <span class="px-3 py-3 color-black">{{ col.label }}</span>
+          </mat-checkbox>
+        </div>
+      }
+    </div>
+  </form>
+</div>

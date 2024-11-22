@@ -1,0 +1,38 @@
+$red-palette: (
+    50 : #fdedea,
+    100 : #fad2cb,
+    200 : #f7b4a8,
+    300 : #f49685,
+    400 : #f1806a,
+    500 : #ef6950,
+    600 : #ed6149,
+    700 : #eb5640,
+    800 : #e84c37,
+    900 : #e43b27,
+    A100 : #ffffff,
+    A200 : #ffefed,
+    A400 : #ffc0ba,
+    A700 : #ffa9a1,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$red-dark-primary: mat.m2-define-palette($red-palette, 500, 50, 900);
+$red-dark-accent: mat.m2-define-palette(mat.$m2-amber-palette, A200, A100, A700);
+$red-dark-warn: mat.m2-define-palette(mat.$m2-red-palette, 500);
+
+$red-dark-theme: _mat-create-custom-dark-color-config($red-dark-primary, $red-dark-accent, $red-dark-warn);

@@ -1,0 +1,38 @@
+$red-palette: (
+    50 : #f4e5e6,
+    100 : #e4bec0,
+    200 : #d29396,
+    300 : #bf676b,
+    400 : #b2474c,
+    500 : #a4262c,
+    600 : #9c2227,
+    700 : #921c21,
+    800 : #89171b,
+    900 : #780d10,
+    A100 : #ffaaac,
+    A200 : #ff777a,
+    A400 : #ff4448,
+    A700 : #ff2a2f,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$red-primary: mat.m2-define-palette($red-palette, 500, 50, 900); 
+$red-accent: mat.m2-define-palette(mat.$m2-green-palette, 500, 100, 900);
+$red-warn: mat.m2-define-palette(mat.$m2-deep-orange-palette, A400);
+
+$red-theme: _mat-create-custom-light-color-config($red-primary, $red-accent, $red-warn); 

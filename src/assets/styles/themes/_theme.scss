@@ -1,0 +1,67 @@
+@use '@angular/material' as mat;
+@use 'sass:map';
+
+$custom-typography: mat.m2-define-typography-config(
+    $font-family: 'Euclid',
+    $body-1: mat.m2-define-typography-level(14px, 20px, 400),
+    $button: mat.m2-define-typography-level(14px, 14px, 500),
+);
+@include mat.all-component-typographies($custom-typography);
+@include mat.core();
+
+@import 'create-light-theme', 'create-dark-theme', 'theme-reset';
+
+#app{
+    &.bc{
+        @import "skins/light/bc";
+        @include mat.all-component-colors($bc-theme);
+        @include theme-reset($bc-theme);
+    }
+    &.indigo{
+        @import "skins/light/indigo";
+        @include mat.all-component-colors($indigo-theme);
+        @include theme-reset($indigo-theme);
+    }
+    &.blue{
+        @import "skins/light/blue";
+        @include mat.all-component-colors($blue-theme);
+        @include theme-reset($blue-theme);
+    }
+    &.teal{
+        @import "skins/light/teal";
+        @include mat.all-component-colors($teal-theme);
+        @include theme-reset($teal-theme);
+        @include mat.all-component-densities(0);
+        @include mat.form-field-density(-4);
+        --mdc-outlined-text-field-outline-color:#519EA6;
+        --mdc-outlined-text-field-hover-outline-color:#519EA6;
+        --mdc-outlined-text-field-label-text-color: #519EA6;
+        --mdc-outlined-text-field-hover-label-text-color: #519EA6;
+    }
+    &.green{
+        @import "skins/light/green";
+        @include mat.all-component-colors($green-theme);
+        @include theme-reset($green-theme);
+    }
+    &.red{
+        @import "skins/light/red";
+        @include mat.all-component-colors($red-theme);
+        @include theme-reset($red-theme);
+    }
+
+    &.green-dark{
+        @import "skins/dark/green-dark";
+        @include mat.all-component-colors($green-dark-theme);
+        @include theme-reset($green-dark-theme, true);
+    }
+    &.blue-dark{
+        @import "skins/dark/blue-dark";
+        @include mat.all-component-colors($blue-dark-theme);
+        @include theme-reset($blue-dark-theme, true);
+    }
+    &.red-dark{
+        @import "skins/dark/red-dark";
+        @include mat.all-component-colors($red-dark-theme);
+        @include theme-reset($red-dark-theme, true);
+    }
+}

@@ -1,0 +1,16 @@
+<mat-form-field appearance="outline" class="w-100 sm">
+  <mat-label>{{ label }}</mat-label>
+  <input
+    [readonly]="readOnly"
+    matInput
+    [formControl]="control"
+    [type]="type"
+    [mask]="maskValue ? maskValue : ''"
+    [maxLength]="maxLength ? maxLength : '99999'"
+    [dropSpecialCharacters]="false"
+    [showMaskTyped]="false"
+    (focus)="onFocus()" (blur)="onBlur()"/>
+    <mat-error *ngIf="control?.hasError('required')">Bu sahə məcburidir</mat-error>
+    <mat-error *ngIf="control?.hasError('email')">Düzgün email formatı daxil edin</mat-error>
+    <mat-error *ngIf="control?.hasError('minlength')">Daxil etdiyiniz nömrə düzgün formatda deil</mat-error>
+</mat-form-field>

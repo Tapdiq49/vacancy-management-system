@@ -1,0 +1,12 @@
+<mat-sidenav-container class="main-container" ngClass.lt-md="mobile">
+  <mat-sidenav [opened]="true" mode="side" #sidenav class="main-sidenav" [disableClose]="true">
+    <app-sidenav [sidenavSmall]="configService.appConfig.sidenavSmall"></app-sidenav>
+  </mat-sidenav>
+  <mat-sidenav-content fxLayout="column" fxLayoutAlign="start stretch">
+    <main>
+      <app-header></app-header>
+      <router-outlet></router-outlet>
+    </main>
+    <div class="sticky-footer-helper" fxFlex="grow"></div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

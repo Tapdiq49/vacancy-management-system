@@ -1,0 +1,433 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@import '../abstracts/functions';
+
+@mixin theme-reset($theme, $dark-theme: false) {
+    $color-config: mat.m2-get-color-config($theme);
+    $primary: map.get($color-config, 'primary');
+    $accent: map.get($color-config, 'accent');
+    $warn: map.get($color-config, 'warn');
+    $foreground: map.get($color-config, 'foreground');
+    $background: map.get($color-config, 'background');
+
+    .bg {
+        background-color: mat.m2-get-color-from-palette($background, background);
+    }
+
+    .bg-primary {
+        background: mat.m2-get-color-from-palette($primary);
+        color: mat.m2-get-color-from-palette($primary, default-contrast);
+    }
+
+    .bg-accent {
+        background: mat.m2-get-color-from-palette($accent);
+        color: mat.m2-get-color-from-palette($accent, default-contrast);
+    }
+
+    .bg-warn {
+        background: mat.m2-get-color-from-palette($warn);
+        color: mat.m2-get-color-from-palette($warn, default-contrast);
+    }
+
+    .bg-light {
+        background-color: rgba(mat.m2-get-color-from-palette($background, background), 0.85);
+    }
+
+    .bg-card {
+        background-color: mat.m2-get-color-from-palette($background, card);
+    }
+
+    .bg-white:not(.mat-mdc-form-field) {
+        background-color: #fff;
+    }
+
+    .bg-grey:not(.mat-mdc-form-field) {
+        background-color: mat.m2-get-color-from-palette(mat.m2-define-palette(mat.$m2-grey-palette, 100));
+    }
+
+    .bg-red:not(.mat-mdc-form-field) {
+        background-color: mat.m2-get-color-from-palette(mat.m2-define-palette(mat.$m2-red-palette, 100));
+    }
+
+    .bg-green:not(.mat-mdc-form-field) {
+        background-color: mat.m2-get-color-from-palette(mat.m2-define-palette(mat.$m2-green-palette, 100));
+    }
+
+    .bg-blue:not(.mat-mdc-form-field) {
+        background-color: mat.m2-get-color-from-palette(mat.m2-define-palette(mat.$m2-blue-palette, 100));
+    }
+
+    .bg-white.mat-mdc-form-field .mat-mdc-text-field-wrapper {
+        border-radius: 12px;
+        background-color: #fff;
+    }
+
+    .bg-grey.mat-mdc-form-field .mat-mdc-text-field-wrapper {
+        border-radius: 12px;
+        background-color: mat.m2-get-color-from-palette(mat.m2-define-palette(mat.$m2-grey-palette, 100));
+    }
+
+    .bg-red.mat-mdc-form-field .mat-mdc-text-field-wrapper {
+        border-radius: 12px;
+        background-color: mat.m2-get-color-from-palette(mat.m2-define-palette(mat.$m2-red-palette, 100));
+    }
+
+    .bg-green.mat-mdc-form-field .mat-mdc-text-field-wrapper {
+        border-radius: 12px;
+        background-color: mat.m2-get-color-from-palette(mat.m2-define-palette(mat.$m2-green-palette, 100));
+    }
+
+    .bg-blue.mat-mdc-form-field .mat-mdc-text-field-wrapper {
+        border-radius: 12px;
+        background-color: mat.m2-get-color-from-palette(mat.m2-define-palette(mat.$m2-blue-palette, 100));
+    }
+
+
+    .primary-color {
+        color: mat.m2-get-color-from-palette($primary);
+    }
+
+    .accent-color {
+        color: mat.m2-get-color-from-palette($accent);
+    }
+
+    .warn-color {
+        color: mat.m2-get-color-from-palette($warn);
+    }
+
+    .base-color {
+        color: mat.m2-get-color-from-palette($foreground, base) !important;
+    }
+
+    .secondary-color {
+        color: mat.m2-get-color-from-palette($foreground, secondary-text) !important;
+    }
+
+    .third-color {
+      color: #92C5C9 !important;
+    }
+
+    .transparent-btn {
+        background-color: rgba(mat.m2-get-color-from-palette($background, card), 0.12);
+        color: inherit;
+    }
+
+    $alert-bg-opacity: 1;
+    $menu-title-color: mat.m2-get-color-from-palette($primary);
+
+    @if $dark-theme {
+        $alert-bg-opacity: .12;
+        $menu-title-color: #fff;
+    }
+
+    .theme-shadow,
+    .mat-sidenav.main-sidenav,
+    .mat-mdc-card:not([class*=mat-elevation-z]) //   .mat-raised-button:not([class*=mat-elevation-z])
+
+        {
+        @include mat.elevation(4, mat.m2-get-color-from-palette($foreground, elevation), 0.06);
+    }
+
+    fieldset.user-info {
+        border-color: mat.m2-get-color-from-palette($foreground, divider);
+    }
+
+    footer {
+        background: mat.m2-get-color-from-palette($foreground, divider);
+    }
+
+    .main-toolbar.mat-toolbar {
+        .logo {
+            svg {
+                fill: mat.m2-get-color-from-palette($background, card);
+            }
+        }
+    }
+
+    #vertical-menu .sidenav-footer svg {
+        fill: mat.m2-get-color-from-palette($background, card);
+    }
+
+
+
+    .menu-item {
+        .mat-mdc-button {
+            &.active-link {
+                background: mat.m2-get-color-from-palette($primary);
+                color: #fff;
+
+                .menu-title,
+                .menu-expand-icon {
+                    color: #fff;
+                }
+
+                .white-icon {
+                    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(200%) contrast(100%)
+                }
+            }
+        }
+    }
+
+    .moreButton{
+      &:hover{
+        background-color: #fff !important;
+      }
+      .mat-mdc-menu-item-text{
+        button{
+          cursor: pointer;
+          border: none;
+          background: #fff;
+          display: flex;
+          align-items: center;
+          padding: 5px;
+          width: 100%;
+          &:hover{
+           background-color: rgba(0, 0, 0, 0.04);
+           border-radius: 5px;
+          }
+        }
+      }
+      &.more-button-row{
+        .mat-mdc-menu-item-text{
+          display: flex;
+          .nowrap{
+            white-space: nowrap;
+          }
+          button{
+            padding: 5px 10px;
+            border-right: 1px solid #D8E8EB;
+          }
+          button:last-child{
+            border-right: none;
+          }
+        }
+      }
+    }
+
+
+    .sub-menu {
+        .menu-item {
+            .mat-mdc-button {
+                background-color: white;
+
+                .mat-mdc-button-persistent-ripple::before {
+                    background-color: white !important;
+                }
+
+                .menu-title {
+                    color: black;
+                }
+
+                &:hover,
+                &:active {
+                    background-color: white !important;
+                    color: #519EA6;
+
+                    .menu-title {
+                        color: #519EA6;
+                    }
+
+                }
+
+                &.active-link {
+                    background-color: white;
+                    color: mat.m2-get-color-from-palette($primary);
+
+                    .menu-title,
+                    .menu-icon {
+                        color: mat.m2-get-color-from-palette($primary);
+                    }
+                }
+
+            }
+
+
+        }
+
+
+    }
+
+
+
+
+
+
+    .vertical-btn.active-link {
+        background: mat.m2-get-color-from-palette($primary, 500);
+    }
+
+    .parent-block>.structure-item::after,
+    .parent-block>.structure-item::before,
+    .child-block>.structure-item::after,
+    .child-block>.structure-item::before {
+        border-color: mat.m2-get-color-from-palette($foreground, disabled-text);
+    }
+
+    .theme-table {
+        border-color: #CAE2E4;
+        border-radius: 12px;
+        overflow: hidden;
+
+        thead tr {
+            background: #E5F0F2;
+            th{
+              color: #519EA6;
+              font-weight: 600;
+            }
+        }
+
+        .mat-sort-header-arrow {
+            color: black;
+        }
+
+        thead tr th,
+        tbody tr td {
+            border-color: #CAE2E4;
+            &:last-child{
+              border-right: none;
+            }
+        }
+        tbody tr{
+          &:first-child td{
+            border-top: none;
+          }
+        }
+        tbody tr td{
+          border-bottom: none;
+          border-top: 1px solid #CAE2E4;
+        }
+
+        &.custom-table-theme{
+          border-color: transparent;
+        }
+    }
+
+    .pagination-wrapper {
+        .mat-mdc-paginator {
+            background: white;
+            border: none;
+        }
+
+        .custom-paginator-page-disabled {
+            background-color: mat.m2-get-color-from-palette($primary);
+            color: mat.m2-get-color-from-palette($primary, default-contrast);
+        }
+
+        .custom-paginator-page-enabled:hover {
+            background-color: mat.m2-get-color-from-palette($foreground, divider);
+        }
+    }
+
+    .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+        color: mat.m2-get-color-from-palette($primary) !important;
+    }
+
+    .mat-mdc-tab .mdc-tab-indicator__content--underline {
+        border-bottom: 2px solid mat.m2-get-color-from-palette($primary);
+        border-radius: 12px;
+    }
+
+    .mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__leading {
+        border-top-left-radius: var(--mdc-shape-small, 12px) !important;
+        border-bottom-left-radius: var(--mdc-shape-small, 12px) !important;
+    }
+
+    .mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__trailing {
+        border-top-right-radius: var(--mdc-shape-small, 12px) !important;
+        border-bottom-right-radius: var(--mdc-shape-small, 12px) !important;
+    }
+
+    .mat-mdc-raised-button.mat-warn {
+        color: #EE786C;
+        background: white;
+        border: 1px solid #EE786C;
+
+        &:disabled {
+            border: 1px solid #979797 !important;
+            color: #979797 !important;
+        }
+
+    }
+
+    .mat-mdc-dialog-container {
+        .mdc-dialog__surface {
+            border-radius: 12px;
+        }
+
+        .mdc-dialog__content {
+            font-family: inherit;
+        }
+    }
+
+    .theme-pagination {
+        .ngx-pagination {
+            border-color: rgba(mat.m2-get-color-from-palette($primary), 0.08);
+
+            .pagination-previous,
+            .pagination-next {
+                background: rgba(mat.m2-get-color-from-palette($primary), 0.08);
+            }
+
+            .pagination-previous a:before,
+            .pagination-previous.disabled:before,
+            .pagination-next a:after,
+            .pagination-next.disabled:after {
+                border-color: mat.m2-get-color-from-palette($primary);
+            }
+
+            li,
+            a {
+                color: mat.m2-get-color-from-palette($primary);
+            }
+
+            .current {
+                background-color: mat.m2-get-color-from-palette($primary);
+            }
+
+            a:hover {
+                background: rgba(mat.m2-get-color-from-palette($primary), 0.08);
+            }
+        }
+    }
+
+    .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-full,
+    .mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-full {
+        background: #519EA6;
+    }
+
+    .mat-datepicker-content .mat-calendar {
+      width: 279px;
+      height: 336px;
+    }
+
+    .access-disabled {
+        cursor: not-allowed !important;
+        &:hover{
+          background-color: transparent !important;
+        }
+    }
+
+    .btn-disabled {
+      cursor: not-allowed !important;
+      background: #d2d2d2;
+    }
+
+    .mat-mdc-unelevated-button.access-disabled {
+        color: mat.m2-get-color-from-palette($foreground, disabled-button) !important;
+        background-color: mat.m2-get-color-from-palette($foreground, divider) !important;
+    }
+
+    .filter-tree {
+        background-color: white;
+    }
+
+    .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mdc-text-field__input{
+        margin-top: 3px;
+    }
+
+    .accordion-warn-color {
+        border: 1px solid mat.m2-get-color-from-palette($warn);
+        border-radius: 12px;
+        box-shadow: none !important;
+    }
+}

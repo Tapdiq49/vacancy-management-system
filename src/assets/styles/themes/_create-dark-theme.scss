@@ -1,0 +1,52 @@
+$custom-dark-theme-foreground-palette: (
+    base:              white,
+    divider:           rgba(white, 0.12),
+    dividers:          rgba(white, 0.12),
+    disabled:          rgba(white, 0.5),
+    disabled-button:   rgba(white, 0.3),
+    disabled-text:     rgba(white, 0.5),
+    elevation:         black,
+    hint-text:         rgba(white, 0.5),
+    secondary-text:    rgba(white, 0.54),
+    icon:              white,
+    icons:             white,
+    text:              white,
+    slider-min:        white,
+    slider-off:        rgba(white, 0.3),
+    slider-off-active: rgba(white, 0.3),
+);
+
+$custom-dark-theme-background-palette: (
+    status-bar: black,
+    app-bar:    map_get(mat.$m2-grey-palette, 900),
+    background: #303030,
+    hover:      rgba(white, 0.04), // TODO(kara): check style with Material Design UX
+    card:       map_get(mat.$m2-grey-palette, 800),
+    dialog:     map_get(mat.$m2-grey-palette, 800),
+    disabled-button: rgba(white, 0.12),
+    raised-button: map_get(mat.$m2-grey-palette, 800),
+    focused-button: rgba(white, 0.12),
+    selected-button: map_get(mat.$m2-grey-palette, 900),
+    selected-disabled-button: map_get(mat.$m2-grey-palette, 800),
+    disabled-button-toggle: black,
+    unselected-chip: map_get(mat.$m2-grey-palette, 700),
+    disabled-list-option: black,
+    tooltip: map_get(mat.$m2-grey-palette, 700),
+);
+
+  
+@function _mat-create-custom-dark-color-config($primary, $accent, $warn: null) {
+    $theme: mat.m2-define-dark-theme((
+        color: ( 
+            primary: $primary,
+            accent: $accent,
+            warn: if($warn != null, $warn, define-palette(palette.$red-palette)),
+        )
+    )); 
+
+    $theme: map.set($theme, color, background, $custom-dark-theme-background-palette);
+    $theme: map.set($theme, color, foreground, $custom-dark-theme-foreground-palette); 
+    $theme: map.set($theme, background, $custom-dark-theme-background-palette);
+    $theme: map.set($theme, foreground, $custom-dark-theme-foreground-palette);
+    @return $theme;
+}

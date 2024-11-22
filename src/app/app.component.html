@@ -1,0 +1,8 @@
+<div id="app"
+    [ngClass]="appConfig.theme"
+    [class.sidenav-small]="appConfig.sidenavSmall"
+    class="h-100"
+    [class.content-fullscreen]="appConfig.contentFullscreen"
+    [class.main-toolbar-multiple-rows]="['/'].includes(router.url)" >
+  <router-outlet></router-outlet>
+</div>

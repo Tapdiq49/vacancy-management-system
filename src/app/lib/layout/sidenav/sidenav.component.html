@@ -1,0 +1,12 @@
+<div id="vertical-menu" class="flex-col px-3 sidenav-width">
+  <button (click)="goToHome()" class="close-button">
+    <div class="flex align-center justify-start sidenav pointer" >
+      <img src="../../../../assets/img/logo.png" [class.small]="sidenavSmall" class="logo" alt="logo" />
+      <img src="../../../../assets/img/logo-text.png" [class.small]="sidenavSmall" class="ml-3" alt="logo"/>
+    </div>
+  </button>
+
+  <app-vertical-menu *ngIf="menuItems.length" [menuItems]="menuItems" [menuParentId]="0"
+    [sidenavSmall]="configService.appConfig.sidenavSmall">
+  </app-vertical-menu>
+</div>

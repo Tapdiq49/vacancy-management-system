@@ -1,0 +1,66 @@
+<div class="align-center w-100 flex-col content-around content-center">
+  <div class="w-100 pb-4 text-center">
+    <h1 class="login-title">Xoş gəlmisiniz!</h1>
+  </div>
+
+  <mat-tab-group animationDuration="0ms" class="login-tab-group o-hidden" [selectedIndex]="tabIndex" (selectedTabChange)="onSelectedTabChange($event)">
+    <mat-tab>
+        <ng-template mat-tab-label>
+          <div class="text-color-primary">Qonaq</div>
+        </ng-template>
+        <div class="text-center py-4">
+          <button mat-raised-button color="primary" [disabled]="btnLoading" class="theme-btn w-100" (click)="onGuestLogin()" type="submit">
+            @if(btnLoading){
+              <div class="spinner m-1">
+                <mat-spinner color="primary" diameter="50" [diameter]="30"></mat-spinner>
+              </div>
+            } @else{
+              <div>Qonaq olaraq daxil ol</div>
+            }
+          </button>
+        </div>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <div class="text-color-primary">İstifadəçi</div>
+      </ng-template>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmitLoginForm()" class="py-4">
+        <app-text-field class="flex-2" label="İstifadəçi adı"  formControlName="userName"></app-text-field>
+        <mat-form-field appearance="outline" class="w-100 pb-2">
+          <mat-label>Şifrə</mat-label>
+          <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+          <button matSuffix mat-icon-button type="button" (click)="hide = !hide" class="mt-2">
+            @if(hide){
+              <img src="../../../assets/icons/eye-off.svg" alt="eye">
+            } @else {
+              <img src="../../../assets/icons/eye-on.svg" alt="eye">
+            }
+          </button>
+          @if(loginForm.controls['password'].hasError('invalidPassword')){
+            <mat-error >
+              {{ loginForm.controls['password'].getError('invalidPassword') }}
+            </mat-error>
+          } @else if(loginForm.get('password')?.hasError('minlength') && loginForm.get('password')?.touched){
+            <mat-error>
+              Şifrə ən azı 8 simvol olmalıdır.
+            </mat-error>
+          } @else if(loginForm.get('password')?.hasError('required')){
+            <mat-error >Şifrə tələb olunur.</mat-error>
+          }
+        </mat-form-field>
+        <div class="text-center pb-4">
+          <button mat-raised-button color="primary" [disabled]="btnLoading" class="theme-btn w-100" type="submit">
+            @if(btnLoading){
+              <div class="spinner m-1">
+                <mat-spinner color="primary" diameter="50" [diameter]="30"></mat-spinner>
+              </div>
+            } @else{
+              <div>Daxil ol</div>
+            }
+          </button>
+        </div>
+      </form>
+    </mat-tab>
+  </mat-tab-group>
+
+</div>

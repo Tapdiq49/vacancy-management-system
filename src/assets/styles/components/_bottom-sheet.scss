@@ -1,0 +1,7 @@
+.custom-bottom-sheet.cdk-overlay-pane {
+    min-width: 960px;
+    .mat-bottom-sheet-container {
+        padding: 0;
+        width: 100%;
+    }
+}

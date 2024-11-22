@@ -1,0 +1,121 @@
+<div class="m-4">
+  <div class="flex justify-between">
+    <p class="sub-title pb-3"><b> {{(menuService?.activeSubMenuItem$ | async)?.title}} </b></p>
+    <div class="center-center flex-row">
+      @if (showRankingBtn) {
+        <button
+          onclick="this.blur()"
+          mat-raised-button
+          type="button"
+          class="theme-btn"
+          (click)="ranking()">
+          <div class="flex align-center">
+            <img src="../../../../assets/icons/ranking.svg" alt="ranking"/>
+            <span class="color-primary fw-500 ml-1">Görünən Sütunlar</span>
+          </div>
+        </button>
+      }
+    </div>
+  </div>
+
+  <div class="table-container">
+    <table class="theme-table mt-2 table-hover">
+      <thead>
+        <tr>
+          @if (showRowN) {
+            <th [style.width.px]="50">Sətir</th>
+          }
+          @for (col of options.columns; track col.name) {
+            <th [style.min-width.px]="col.width" [ngClass]="{'hidden-column': isColumnHidden(col.name)}">{{ col.label }}</th>
+          }
+          @if (showApplyButton) {
+            <th handleAccess [accessRight]="[options.path + '_Put']" [isHide]="true">Əməliyyat</th>
+          }
+          @if (showDownladPdfOrDoc) {
+            <th>Cv</th>
+          }
+        </tr>
+      </thead>
+      <tbody>
+        @if(loading){
+          <tr class="hover-none">
+            <td colspan="100">
+              <div class="spinner m-1">
+                <mat-spinner color="primary" diameter="50"></mat-spinner>
+              </div>
+            </td>
+          </tr>
+        } @else {
+          @if((apiService?.list$ | async); as list){
+            @for (item of list  | paginate  : { itemsPerPage: perPage, currentPage: page, totalItems: apiService?.listCount$.getValue() }; track item?.id; let i = $index) {
+              <tr>
+                @if (showRowN) {
+                  <td class="row-n">{{ (page * perPage) + i + 1 - perPage }}</td>
+                }
+                @for (col of options.columns; track col.name) {
+                  <td [ngClass]="{'hidden-column': isColumnHidden(col.name)}">
+                    @switch (col.type) {
+                      @case ('text') {
+                        {{ item[col.name] }}
+                      }
+                      @case ('date') {
+                        {{ item[col.name] | date:"dd.MM.yyyy" }}
+                      }
+                      @default { }
+                    }
+                  </td>
+                }
+                @if (showApplyButton) {
+                  <td class="text-center" handleAccess [accessRight]="[options.path + '_Put']" [isHide]="true">
+                    <button
+                      handleAccess
+                      [accessRight]="[options.path + '_Put']"
+                      mat-icon-button
+                      [isHide]="true"
+                      type="button"
+                      (click)="apply(item)"
+                      onclick="this.blur()"
+                      [matTooltip]="'Müraciət et'">
+                      <img src="../../../../assets/icons/apply.svg" alt="apply"/>
+                    </button>
+                  </td>
+                }
+                @if (showDownladPdfOrDoc) {
+                  <td class="text-center">
+                    <button
+                      mat-icon-button
+                      type="button"
+                      (click)="downloadPdfOrDoc(item)"
+                      onclick="this.blur()"
+                      [matTooltip]="item.fileName">
+                      <img src="../../../../assets/icons/attachment.svg" alt="attachment"/>
+                    </button>
+                  </td>
+                }
+              </tr>
+            }
+            @if(list?.length === 0){
+              <tr class="hover-none">
+                <td colspan="100">
+                  <p class="p-3 text-center">Məlumat yoxdur</p>
+                </td>
+              </tr>
+            }
+          }
+        }
+      </tbody>
+    </table>
+  </div>
+
+  @if(options.pagination){
+    <div class="pagination-wrapper pt-3" [class.d-none]="(apiService?.list$ | async)?.length === 0">
+        <app-pagination
+          [pageSizeOption]="perPage"
+          [paginationList]="paginationList"
+          (onPageChanged)="onPageChanged($event)"
+          [totalCount]="apiService?.listCount$?.value"
+          (onPageSizeOptionChanged)="pageSizeOptionChanged($event)">
+        </app-pagination>
+    </div>
+  }
+</div>

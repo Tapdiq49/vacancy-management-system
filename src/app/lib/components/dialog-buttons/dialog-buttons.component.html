@@ -1,0 +1,25 @@
+<div class="p-2 flex-row center-center">
+  <button
+    mat-raised-button
+    color="warn"
+    type="button"
+    (click)="onCancelBtnClicks($event)"
+    class="mr-2 flex-2 theme-btn">
+    <div>{{cancelButtonLabel}}</div>
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    type="button"
+    [disabled]="btnLoading"
+    (click)="onAddBtnClicks($event)"
+    class="ml-2 flex-2 theme-btn">
+    @if(btnLoading){
+      <div class="spinner m-1">
+        <mat-spinner color="primary" diameter="50" [diameter]="30"></mat-spinner>
+      </div>
+    } @else{
+      <div>{{addButtonLabel}}</div>
+    }
+  </button>
+</div>

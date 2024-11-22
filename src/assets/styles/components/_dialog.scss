@@ -1,0 +1,45 @@
+.theme-dialog{ 
+    border-radius: 12px; 
+    .header{  
+        padding: 0px 8px 0px 16px;
+    } 
+    .mat-mdc-dialog-container{ 
+        .mat-mdc-dialog-content{ 
+            padding: 0 16px;
+        }
+        .mat-mdc-dialog-actions {
+            padding: 16px;
+        }
+    }   
+    &.fullscreen{
+        width: 100%;
+        height: 100%;
+        max-width: 100% !important; 
+        transform: none !important;
+        .mat-mdc-dialog-container{ 
+            overflow: hidden;
+            border-radius: 0;
+            .mat-mdc-dialog-content{
+                max-height: calc(100vh - 56px);  
+            }
+            .mdc-dialog__surface {
+                border-radius: 0;
+            }
+        }
+             
+    } 
+    &.flexible {
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 65vh;
+            place-content: space-between;
+            padding: 0 16px;
+        }
+        &.fullscreen{ 
+            .content-wrapper {  
+                height: calc(100vh - 86px);
+            }      
+        } 
+    } 
+} 

@@ -1,0 +1,175 @@
+// Flex display
+
+.flex {
+    display: flex !important;
+    box-sizing: border-box;
+}
+
+.inline-flex {
+    display: inline-flex;
+    box-sizing: border-box;
+}
+
+// Flex direction
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-fill {
+    flex: 1 1 0%;
+    box-sizing: border-box;
+}
+
+.flex-1 {
+    flex: 1 1 100%;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+.flex-2 {
+    flex: 1 1 50%;
+    box-sizing: border-box;
+    max-width: 50%;
+}
+
+.flex-3 {
+    flex: 1 1 33.3%;
+    box-sizing: border-box;
+    max-width: 33.3%;
+}
+
+.flex-4 {
+    flex: 1 1 25%;
+    box-sizing: border-box;
+    max-width: 25%;
+}
+
+.flex-5 {
+    flex: 1 1 20%;
+    box-sizing: border-box;
+    max-width: 20%;
+}
+
+.flex-6 {
+    flex: 1 1 16.66%;
+    box-sizing: border-box;
+    max-width: 16.66%;
+}
+
+.flex-7 {
+    flex: 1 1 14.28%;
+    box-sizing: border-box;
+    max-width: 14.28%;
+}
+
+.flex-8 {
+  flex: 1 1 10%;
+  box-sizing: border-box;
+  max-width: 10%;
+}
+
+//Justify-Content
+.justify-start {
+    justify-content: flex-start !important;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.justify-center {
+    justify-content: center !important;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.justify-evenly {
+    justify-content: space-evenly;
+}
+
+//Align-Content
+.content-start {
+    align-content: flex-start;
+}
+
+.content-end {
+    align-content: flex-end;
+}
+
+.content-center {
+    align-content: center
+}
+
+.content-stretch {
+    align-content: stretch
+}
+
+.content-between {
+    align-content: space-between;
+}
+
+.content-around {
+    align-content: space-around;
+}
+
+.content-evenly {
+    align-content: space-evenly;
+}
+
+//Align-Items
+
+.align-start {
+    align-items: flex-start;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+.align-center {
+    align-items: center !important;
+}
+
+.align-stretch {
+    align-items: stretch
+}
+
+.align-baseline {
+    align-items: baseline;
+}
+
+.center-center {
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+@for $i from 1 through 100 {
+    .flex_#{$i} {
+        flex: 1 1 $i*1%;
+        box-sizing: border-box;
+        max-width: $i * 1%;
+    }
+}
+
+

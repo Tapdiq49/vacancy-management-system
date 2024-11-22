@@ -1,0 +1,57 @@
+@import '../abstracts/variables';
+
+#app {
+    .mat-toolbar {
+        background: white !important;
+        position: fixed;
+        z-index: 9;
+        left: 0;
+        top: 0;
+        padding: 0 40px;
+
+        &:not(.mat-toolbar-multiple-rows) {
+            height: $main-toolbar-height;
+            border-bottom: 1px solid #E5F0F2;
+        }
+    }
+
+    &.content-fullscreen {
+        .main-toolbar.mat-toolbar {
+            z-index: -1;
+        }
+    }
+
+    &.boxed {
+        .main-toolbar.mat-toolbar {
+            max-width: $theme-max-width;
+            left: auto;
+        }
+    }
+
+    .menu {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+    .title {
+        transition: 400ms;
+        padding-left: $main-sidenav-width;
+    }
+
+    &.sidenav-small {
+        .mat-toolbar {
+            .title {
+                padding-left: calc($main-sidenav-small-width - 10px);
+            }
+        }
+    }
+
+    .mdc-button .mdc-button__label {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        box-sizing: border-box;
+    }
+}

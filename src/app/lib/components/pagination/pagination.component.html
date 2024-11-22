@@ -1,0 +1,27 @@
+<div class="py-3">
+  <div class="flex-row justify-between align-center">
+      <div  class="flex-row justify-start align-center">
+      <div>Səhifə başı sətir sayı</div>
+      <div class="mx-3 page-size-dropdown">
+        <mat-form-field appearance="outline" class="sm pb-0 pagination">
+          <mat-select [(ngModel)]="pageSizeOption" (ngModelChange)="pageSizeOptionChanged()">
+            @for (item of paginationList; track item.value) {
+              <mat-option [value]="item.value">{{item.displayText}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </div>
+      @if(totalCount){
+        <div class="secondary-color">Cəmi sətir sayı: {{totalCount}}</div>
+      }
+  </div>
+      <pagination-controls
+          class="theme-pagination"
+          previousLabel=""
+          nextLabel=""
+          [autoHide]="false"
+          [maxSize]="6"
+          (pageChange)="pageChanged($event)">
+      </pagination-controls>
+  </div>
+</div>

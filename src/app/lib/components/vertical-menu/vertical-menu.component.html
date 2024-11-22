@@ -1,0 +1,27 @@
+@for (menu of parentMenu; track $index) {
+  <div class="menu-item mt-3" [class.small]="sidenavSmall">
+    @if (hasAccess(menu.claimNames)) {
+      @if(menu.hasSubMenu){
+        <a mat-button class="flex-row justify-start align-center menu-btn" [class.parent]="menu.parentId == 0"
+          (click)="onClick(menu)" [id]="'menu-item-'+menu.id">
+          <img [src]="'../../../assets/icons/' + menu.icon +'.svg'" class="flex align-center white-icon" width="26px" alt="menu">
+          <span class="menu-title flex align-center">{{menu.title}}</span>
+          <mat-icon *ngIf="!sidenavSmall" class="menu-expand-icon mat-icon-sm">keyboard_arrow_left</mat-icon>
+        </a>
+      }
+      @if(menu.routerLink && !menu.hasSubMenu){
+        <a mat-button class="flex-row justify-start align-center" [class.parent]="menu.parentId == 0"
+          [routerLink]="[menu.routerLink]" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:false}"
+          (click)="onClick(menu)" [id]="'menu-item-'+menu.id">
+          <mat-icon class="menu-icon mat-icon-sm">noise_control_off</mat-icon>
+          <span class="menu-title">{{menu.title}}</span>
+        </a>
+      }
+      @if(menu.hasSubMenu){
+        <div class="sub-menu" [id]="'sub-menu-'+menu.id">
+          <app-vertical-menu [menuItems]="menuItems" [menuParentId]="menu.id" [sidenavSmall]="sidenavSmall"></app-vertical-menu>
+        </div>
+      }
+    }
+  </div>
+}

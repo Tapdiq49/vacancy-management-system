@@ -1,0 +1,25 @@
+@font-face {
+  font-family: 'Euclid';
+  src: url('assets/fonts/Euclid-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Euclid';
+  src: url('assets/fonts/Euclid-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Euclid';
+  src: url('assets/fonts/Euclid-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@import "@angular/material/prebuilt-themes/azure-blue.css";
+@import 'material-icons/iconfont/material-icons.scss';
+@import "assets/styles/pages";
+@import "assets/styles/layout";
+@import "assets/styles/components";
+@import "assets/styles/themes/theme";
+@import "assets/styles/abstracts";
