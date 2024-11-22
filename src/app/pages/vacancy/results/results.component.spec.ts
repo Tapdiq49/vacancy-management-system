@@ -56,13 +56,13 @@ describe('ResultsComponent', () => {
     expect(component.tableOptions.columns[2].label).toBe('Elektron ünvanı');
     expect(component.tableOptions.columns[2].name).toBe('email');
 
-    expect(component.tableOptions.columns[3].label).toBe('Düzgün cavab sayı');
+    expect(component.tableOptions.columns[3].label).toBe('Ballar');
     expect(component.tableOptions.columns[3].name).toBe('correctAnswers');
 
     expect(component.tableOptions.columns[4].label).toBe('Düzgün cavab faizi');
     expect(component.tableOptions.columns[4].name).toBe('percentCorrect');
 
-    expect(component.tableOptions.columns[5].label).toBe('Başlıq');
+    expect(component.tableOptions.columns[5].label).toBe('Vakansiya');
     expect(component.tableOptions.columns[5].name).toBe('title');
 
     expect(component.tableOptions.columns[6].label).toBe('Qısa təsviri');

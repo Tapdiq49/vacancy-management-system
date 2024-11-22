@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { Subscription } from 'rxjs';
 import { DialogService } from '../../../../services/dialog.service';
 import { Apply } from '../../../../lib/interfaces/apply';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-questions',
@@ -21,6 +22,7 @@ import { Apply } from '../../../../lib/interfaces/apply';
     MatRadioButton,
     MatRadioModule,
     MatInputModule,
+    MatIconModule,
     MatButtonModule,
   ],
 })
@@ -41,8 +43,8 @@ export class QuestionsComponent implements OnInit, OnDestroy {
   public fileUploaded: boolean = false;
   public fileBase64: string;
   constructor(
-    private dialogRef: MatDialogRef<QuestionsComponent>,
-    private fb: FormBuilder,
+    private readonly dialogRef: MatDialogRef<QuestionsComponent>,
+    private readonly fb: FormBuilder,
     public dialogService: DialogService,
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) {}

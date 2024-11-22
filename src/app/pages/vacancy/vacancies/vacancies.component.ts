@@ -34,11 +34,12 @@ export class VacanciesComponent {
 
   tableOptions: TableOptions = {
     path: 'Vacancies',
+    filterColumn: 'Vacancies',
     dialogComponent: this.dioalogComponent,
     pagination: true,
     showRankingBtn: true,
     columns: [
-      { type: 'text', label: 'Başlıq', name: 'title'},
+      { type: 'text', label: 'Vakansiya', name: 'title'},
       { type: 'text', label: 'Qısa təsviri', name: 'description' },
       { type: 'date', label: 'Son müraciət tarixi', name: 'lastDate' },
     ]

@@ -12,6 +12,7 @@ import { TableComponent } from '../../../lib/components/table/table.component';
 export class ResultsComponent {
   tableOptions: TableOptions = {
     path: 'Results',
+    filterColumn: 'Results',
     pagination: true,
     showRankingBtn: true,
     showDownladPdfOrDoc: true,
@@ -19,9 +20,9 @@ export class ResultsComponent {
       { type: 'text', label: 'Adı və soyadı', name: 'fullname', width: 160},
       { type: 'text', label: 'Nömrəsi', name: 'phone', width: 160},
       { type: 'text', label: 'Elektron ünvanı', name: 'email'},
-      { type: 'text', label: 'Düzgün cavab sayı', name: 'correctAnswers'},
+      { type: 'text', label: 'Ballar', name: 'correctAnswers'},
       { type: 'text', label: 'Düzgün cavab faizi', name: 'percentCorrect'},
-      { type: 'text', label: 'Başlıq', name: 'title'},
+      { type: 'text', label: 'Vakansiya', name: 'title'},
       { type: 'text', label: 'Qısa təsviri', name: 'description' },
     ]
   }

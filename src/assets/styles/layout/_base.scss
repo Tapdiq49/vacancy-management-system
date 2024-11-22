@@ -117,6 +117,12 @@ a {
   flex-direction: column;
 }
 
+.mat-mdc-radio-button{
+  .mdc-label{
+    cursor: pointer !important;
+  }
+}
+
 .red-timer{
   color: rgb(255, 74, 74);
 }

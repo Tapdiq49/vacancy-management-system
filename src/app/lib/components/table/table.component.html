@@ -29,7 +29,7 @@
             <th [style.min-width.px]="col.width" [ngClass]="{'hidden-column': isColumnHidden(col.name)}">{{ col.label }}</th>
           }
           @if (showApplyButton) {
-            <th handleAccess [accessRight]="[options.path + '_Put']" [isHide]="true">Əməliyyat</th>
+            <th handleAccess [accessRight]="[options.path + '_Put']" [isHide]="true"></th>
           }
           @if (showDownladPdfOrDoc) {
             <th>Cv</th>
@@ -67,7 +67,10 @@
                 }
                 @if (showApplyButton) {
                   <td class="text-center" handleAccess [accessRight]="[options.path + '_Put']" [isHide]="true">
-                    <button
+                    @if(item.lastDate < date){
+                      <div>Müraciətin vaxtı bitmişdir</div>
+                    } @else{
+                      <button
                       handleAccess
                       [accessRight]="[options.path + '_Put']"
                       mat-icon-button
@@ -78,6 +81,8 @@
                       [matTooltip]="'Müraciət et'">
                       <img src="../../../../assets/icons/apply.svg" alt="apply"/>
                     </button>
+                    }
+
                   </td>
                 }
                 @if (showDownladPdfOrDoc) {

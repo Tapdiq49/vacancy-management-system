@@ -86,7 +86,7 @@ export const MockVacancies = {
           options: [
             { id: 3, text: 'Webpack', isCorrect: true },
             { id: 1, text: 'RequireJS', isCorrect: false },
-            { id: 2, text: 'SystemJS', isCorrect: false }
+            { id: 2, text: 'SystemJS', isCorrect: false },
           ]
         },
         {
@@ -432,6 +432,150 @@ export const MockVacancies = {
           ]
         }
       ]
-    }
+    },
+    {
+      id: 4,
+      count: 15,
+      title: "Fullstack Developer",
+      description: "Senior Fullstack Developer",
+      lastDate: "2024-10-20T23:50:21.817Z",
+      interviewQuestions: [
+          {
+          id: 1,
+          title: "What is a server?",
+          options: [
+              { id: 1, text: "A computer that provides services to other computers", isCorrect: true },
+              { id: 2, text: "A device for printing documents", isCorrect: false },
+              { id: 3, text: "A software for video editing", isCorrect: false }
+            ]
+          },
+          {
+          id: 2,
+          title: "What is the primary purpose of an operating system?",
+          options: [
+              { id: 1, text: "To manage hardware and software resources", isCorrect: true },
+              { id: 2, text: "To provide internet connectivity", isCorrect: false },
+              { id: 3, text: "To design websites", isCorrect: false }
+            ]
+          },
+          {
+          id: 3,
+          title: "What is Active Directory?",
+          options: [
+              { id: 1, text: "A directory service for Windows domain networks", isCorrect: true },
+              { id: 2, text: "A cloud storage platform", isCorrect: false },
+              { id: 3, text: "An email client", isCorrect: false }
+            ]
+          },
+          {
+          id: 4,
+          title: "What is the purpose of a DNS server?",
+          options: [
+              { id: 1, text: "To resolve domain names into IP addresses", isCorrect: true },
+              { id: 2, text: "To store user data", isCorrect: false },
+              { id: 3, text: "To manage firewall rules", isCorrect: false }
+            ]
+          },
+          {
+          id: 5,
+          title: "What is a firewall?",
+          options: [
+              { id: 1, text: "A security system that controls incoming and outgoing network traffic", isCorrect: true },
+              { id: 2, text: "A tool for managing databases", isCorrect: false },
+              { id: 3, text: "A software for creating backups", isCorrect: false }
+            ]
+          },
+          {
+          id: 6,
+          title: "What is virtualization in IT?",
+          options: [
+              { id: 1, text: "Creating virtual versions of hardware, OS, or storage", isCorrect: true },
+              { id: 2, text: "A tool for designing graphics", isCorrect: false },
+              { id: 3, text: "A type of database management", isCorrect: false }
+            ]
+          },
+          {
+          id: 7,
+          title: "What is a VPN used for?",
+          options: [
+              { id: 1, text: "To create a secure connection over a public network", isCorrect: true },
+              { id: 2, text: "To manage local databases", isCorrect: false },
+              { id: 3, text: "To monitor server performance", isCorrect: false }
+            ]
+          },
+          {
+          id: 8,
+          title: "What is an IP address?",
+          options: [
+              { id: 1, text: "A unique identifier for devices on a network", isCorrect: true },
+              { id: 2, text: "A tool for optimizing software", isCorrect: false },
+              { id: 3, text: "A type of storage device", isCorrect: false }
+            ]
+          },
+          {
+          id: 9,
+          title: "What is the difference between TCP and UDP?",
+          options: [
+              { id: 1, text: "TCP is connection-oriented, UDP is connectionless", isCorrect: true },
+              { id: 2, text: "TCP is faster than UDP", isCorrect: false },
+              { id: 3, text: "UDP is used for all internet protocols", isCorrect: false }
+            ]
+          },
+          {
+          id: 10,
+          title: "What is RAID in system administration?",
+          options: [
+              { id: 1, text: "A way to combine multiple disks for redundancy or performance", isCorrect: true },
+              { id: 2, text: "A type of processor", isCorrect: false },
+              { id: 3, text: "A software update method", isCorrect: false }
+            ]
+          },
+          {
+          id: 11,
+          title: "What is SSH used for?",
+          options: [
+              { id: 1, text: "To securely access remote servers", isCorrect: true },
+              { id: 2, text: "To transfer large files", isCorrect: false },
+              { id: 3, text: "To block malicious websites", isCorrect: false }
+            ]
+          },
+          {
+          id: 12,
+          title: "What is the function of a proxy server?",
+          options: [
+              { id: 1, text: "To act as an intermediary for client requests to servers", isCorrect: true },
+              { id: 2, text: "To encrypt network traffic", isCorrect: false },
+              { id: 3, text: "To manage local user accounts", isCorrect: false }
+            ]
+          },
+          {
+          id: 13,
+          title: "What is the purpose of system monitoring tools?",
+          options: [
+              { id: 1, text: "To track performance and resource usage", isCorrect: true },
+              { id: 2, text: "To configure operating systems", isCorrect: false },
+              { id: 3, text: "To manage printers", isCorrect: false }
+            ]
+          },
+          {
+          id: 14,
+          title: "What is the role of a system administrator?",
+          options: [
+              { id: 1, text: "To ensure systems are operational, secure, and updated", isCorrect: true },
+              { id: 2, text: "To develop mobile applications", isCorrect: false },
+              { id: 3, text: "To design websites", isCorrect: false }
+            ]
+          },
+          {
+          id: 15,
+          title: "What is the purpose of a backup system?",
+          options: [
+              { id: 1, text: "To recover data in case of loss or failure", isCorrect: true },
+              { id: 2, text: "To improve server performance", isCorrect: false },
+              { id: 3, text: "To monitor network activity", isCorrect: false }
+            ]
+          }
+        ]
+      }
   ]
 };

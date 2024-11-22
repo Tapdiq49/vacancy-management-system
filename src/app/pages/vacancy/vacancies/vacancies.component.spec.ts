@@ -60,7 +60,7 @@ describe('VacanciesComponent', () => {
 
     expect(component.tableOptions.columns.length).toBe(3);
 
-    expect(component.tableOptions.columns[0].label).toBe('Başlıq');
+    expect(component.tableOptions.columns[0].label).toBe('Vakansiya');
     expect(component.tableOptions.columns[0].name).toBe('title');
     expect(component.tableOptions.columns[0].type).toBe('text');
 

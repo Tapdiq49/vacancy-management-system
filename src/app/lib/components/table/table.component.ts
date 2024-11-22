@@ -43,7 +43,7 @@ export class TableComponent {
   public paginationList: any[];
   public loading: boolean = false;
   public localPerPage: string;
-
+  public date = new Date().toISOString();
   constructor(
     public apiService: ApiService,
     public menuService: MenuService,
